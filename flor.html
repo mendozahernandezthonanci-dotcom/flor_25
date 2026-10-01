@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz 30 de septiembre</title>
+
+    <style>
+        body {
+            background: linear-gradient(#dff4ff, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .contenedor {
+            text-align: center;
+        }
+
+        /* FLOR */
+        .flor {
+            position: relative;
+            width: 220px;
+            height: 320px;
+            margin: auto;
+            animation: balanceo 3s ease-in-out infinite;
+        }
+
+        /* PÉTALOS */
+        .petalo {
+            position: absolute;
+            width: 80px;
+            height: 120px;
+            background: linear-gradient(#42a5f5, #1565c0);
+            border-radius: 50%;
+            top: 20px;
+            left: 70px;
+            transform-origin: 40px 100px;
+            /* Usamos la propiedad CSS 'rotate' independiente para no interferir con la animación 'scale' */
+            animation: crecer 2s ease-out forwards;
+        }
+
+        .petalo1 { rotate: 0deg; }
+        .petalo2 { rotate: 72deg; }
+        .petalo3 { rotate: 144deg; }
+        .petalo4 { rotate: 216deg; }
+        .petalo5 { rotate: 288deg; }
+
+        /* CENTRO */
+        .centro {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            background: #ffd700;
+            border-radius: 50%;
+            top: 75px;
+            left: 78px;
+            z-index: 2;
+            animation: brillo 1.5s infinite alternate;
+        }
+
+        /* TALLO */
+        .tallo {
+            position: absolute;
+            width: 15px;
+            height: 160px;
+            background: #228b22;
+            top: 135px;
+            left: 103px;
+            border-radius: 10px;
+            z-index: -1; /* Asegura que vaya detrás de los pétalos */
+        }
+
+        /* HOJA */
+        .hoja {
+            position: absolute;
+            width: 75px;
+            height: 35px;
+            background: #32cd32;
+            border-radius: 100% 0;
+            top: 205px;
+            left: 35px;
+            transform: rotate(-25deg);
+            z-index: -1; /* Asegura que vaya detrás */
+        }
+
+        /* TEXTO */
+        h1 {
+            color: #1565c0;
+            font-size: 32px;
+            animation: aparecer 3s ease-in-out;
+        }
+
+        /* PÉTALOS QUE CAEN */
+        .caida {
+            position: absolute;
+            top: -50px;
+            font-size: 25px;
+            animation: caer 6s linear infinite;
+        }
+
+        .caida:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .caida:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .caida:nth-child(3) { left: 60%; animation-delay: 1s; }
+        .caida:nth-child(4) { left: 85%; animation-delay: 3s; }
+
+        /* ANIMACIONES */
+        @keyframes balanceo {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        @keyframes crecer {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes brillo {
+            from { box-shadow: 0 0 5px #ffd700; }
+            to { box-shadow: 0 0 25px #fff176; }
+        }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            20% { opacity: 1; }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PÉTALOS QUE CAEN -->
+    <div class="caida">💙</div>
+    <div class="caida">💙</div>
+    <div class="caida">💙</div>
+    <div class="caida">💙</div>
+
+    <div class="contenedor">
+        <div class="flor">
+            <div class="tallo"></div>
+            <div class="hoja"></div>
+
+            <div class="petalo petalo1"></div>
+            <div class="petalo petalo2"></div>
+            <div class="petalo petalo3"></div>
+            <div class="petalo petalo4"></div>
+            <div class="petalo petalo5"></div>
+
+            <div class="centro"></div>
+        </div>
+
+        <h1>💙 Feliz 30 de septiembre 💙</h1>
+    </div>
+
+</body>
+</html>
